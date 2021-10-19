@@ -1,20 +1,17 @@
 @extends('layouts.default')
 <style>
-    th {
+  th {
       background-color: #289ADC;
       color: white;
       padding: 5px 40px;
     }
-    tr:nth-child(4) td{
-      padding: 10px;
+    tr:nth-child(odd) td{
+      background-color: #FFFFFF;
     }
     td {
       padding: 25px 40px;
       background-color: #EEEEEE;
       text-align: center;
-    }
-    input {
-      padding: 5px;
     }
     button {
       padding: 10px 20px;
@@ -23,34 +20,34 @@
       color: white;
     }
 </style>
-@section('title', 'add.blade.php')
-
+@section('title', '.add.blade.php')
 @section('content')
-<form action="/add" method="POST">
+@if(count($errors)>0)
+<ul>
+  @foreach($errors->all() as $error)
+  <li>
+    {{$error}}
+  </li>
+    @endforeach
+</ul>
+@endif
+<form action="/book/add" method="post">
   <table>
     @csrf
     <tr>
       <th>
-        name
+        author_id:
       </th>
       <td>
-        <input type="text" name="name">
+        <input type="number" name="author_id">
       </td>
     </tr>
     <tr>
       <th>
-        age
+        title:
       </th>
       <td>
-        <input type="text" name="age">
-      </td>
-    </tr>
-    <tr>
-      <th>
-        nationality
-      </th>
-      <td>
-        <input type="text" name="nationality">
+        <input type="text" name="title">
       </td>
     </tr>
     <tr>

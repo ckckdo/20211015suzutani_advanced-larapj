@@ -16,9 +16,13 @@ class Author extends Model
         'age'=>'integer|min:0|max:150',
         'nationality'=>'required'
     );
+    public function book(){
+        return $this->hasOne('App\Models\Book');
+    }
     public function getDetail()
     {
         $txt='ID:'.$this->id . ' ' . $this->name . '(' . $this->age .  '才'.') '.$this->nationality;
         return $txt;
     }
+
 }

@@ -1,6 +1,6 @@
 @extends('layouts.default')
 <style>
-    th {
+  th {
       background-color: #289ADC;
       color: white;
       padding: 5px 40px;
@@ -14,29 +14,17 @@
       text-align: center;
     }
 </style>
-@section('title', 'index.blade.php')
+@section('title', 'book.index.blade.php')
 
 @section('content')
 <table>
   <tr>
-    <th>id</th>
-    <th>name</th>
-    <th>age</th>
-    <th>nationality</th>
+    <th>Books</th>
   </tr>
   @foreach ($items as $item)
   <tr>
     <td>
-      {{$item->id}}
-    </td>
-    <td>
-      {{$item->name}}
-    </td>
-    <td>
-      {{$item->age}}
-    </td>
-    <td>
-      {{$item->nationality}}
+      {{$item->getTitle()}}
     </td>
   </tr>
   @endforeach
