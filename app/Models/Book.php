@@ -15,4 +15,7 @@ class Book extends Model
     public function getTitle(){
         return 'ID'.$this->id.':'.$this->title;
     }
+    public function author(){
+        return $this->belongsTo('App\Models\Author');
+    }
 }
